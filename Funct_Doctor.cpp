@@ -23,6 +23,17 @@ Doctor GetsDoctorData() {
 		}
 	} while (flag == true);
 
+	char* name_elements[] = { name->Last_Name, name->First_Name, name->Patronymic }; //Массив указателей на все элементы имени
+	int fshag = 0; //Номер символа в полной имени
+	for (int elem = 0; elem < 3; elem++) { //Цикл смены элемента имени
+		for (int eshag = 0; eshag < strlen(name_elements[elem]); fshag++, eshag++) { //Копирование элементов в полное имя.
+			un->Fio.Full_Name[fshag] = name_elements[elem][eshag];
+		}
+		un->Fio.Full_Name[fshag++] = ' ';
+	}
+	un->Fio.Full_Name[fshag] = '\0';
+
+
 	printf(" Должность: ");
 	scanf("%19s", un->dolgnost);
 	
@@ -34,7 +45,6 @@ Doctor GetsDoctorData() {
 
 
 //Вывод структуры "Доктор"
-void PutsDoctorInfo(Doctor x) {
-	Doctor::FIO* name = &x.Fio;
-	printf(" |%15s|%15s|%15s|%20s|\n", name->Last_Name, name->First_Name, name->Patronymic, x.dolgnost);
+void PutsDoctorInfo(Doctor un) {
+	printf(" |%45s|%20s|\n", un.Fio.Full_Name, un.dolgnost);
 }
