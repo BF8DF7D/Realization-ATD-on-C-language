@@ -12,7 +12,7 @@ struct Talon{
 	} Time;
 	int kabinet;
 	
-	Doctor* name;
+	Doctor* Dok;
 
 };
 
