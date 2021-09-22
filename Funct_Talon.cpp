@@ -66,9 +66,8 @@ Talon GetsTalonData(Doctor* med) {
 void PutsTalonInfo(Talon un) {
 	Talon::Admission_Date* date = &un.Date;
 	Talon::Admission_Time* time = &un.Time;
-	Doctor::FIO* name = &un.Dok->Fio;
 
-	printf("|%15s|%15s|%15s|", name->Last_Name, name->First_Name, name->Patronymic);
+	printf("|%45s|", un.Dok->Fio.Full_Name);
 	printf("%3d.%2d.%4d|", date->day, date->mounth, date->year);
 	printf("%3d.%2d|%4d|\n", time->hour, time->minutes, un.kabinet);
 }
