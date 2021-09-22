@@ -16,4 +16,5 @@ struct Talon{
 
 };
 
-Talon GetsTalonData();	//Функция создания структуры "Талон"
+Talon GetsTalonData();		//Функция создания структуры "Талон"
+void PutsTalonInfo(Talon);	//Вывод структуры "Талон"

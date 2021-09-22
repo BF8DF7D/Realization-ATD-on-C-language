@@ -58,3 +58,17 @@ Talon GetsTalonData(Doctor* med) {
 
 	return *un; 
 }
+
+
+
+
+//Вывод структуры "Талон"
+void PutsTalonInfo(Talon un) {
+	Talon::Admission_Date* date = &un.Date;
+	Talon::Admission_Time* time = &un.Time;
+	Doctor::FIO* name = &un.name->Fio;
+
+	printf("|%15s|%15s|%15s|", name->Last_Name, name->First_Name, name->Patronymic);
+	printf("%3d.%2d.%4d|", date->day, date->mounth, date->year);
+	printf("%3d.%2d|\n", time->hour, time->minutes);
+}
