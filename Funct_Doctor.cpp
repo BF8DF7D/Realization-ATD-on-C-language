@@ -1,7 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Doctor.h"
 #include <iostream>
-#include <conio.h>
 
 
 

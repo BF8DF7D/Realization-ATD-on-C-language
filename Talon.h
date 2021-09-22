@@ -1,6 +1,6 @@
 #include"Doctor.h"
 
-struct {
+struct Talon{
 	struct Admission_Date {
 		int day,
 			mounth,
@@ -15,3 +15,5 @@ struct {
 	Doctor* name;
 
 };
+
+Talon GetsTalonData();	//Функция создания структуры "Талон"
