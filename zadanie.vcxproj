@@ -144,6 +144,7 @@
     <ClCompile Include="zadanie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Disease.h" />
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="Talon.h" />
   </ItemGroup>
