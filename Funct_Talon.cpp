@@ -70,5 +70,5 @@ void PutsTalonInfo(Talon un) {
 
 	printf("|%15s|%15s|%15s|", name->Last_Name, name->First_Name, name->Patronymic);
 	printf("%3d.%2d.%4d|", date->day, date->mounth, date->year);
-	printf("%3d.%2d|\n", time->hour, time->minutes);
+	printf("%3d.%2d|%4d|\n", time->hour, time->minutes, un.kabinet);
 }
