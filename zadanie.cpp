@@ -1,4 +1,5 @@
 ﻿#include "Talon.h"
+#include "Disease.h"
 #include <locale.h>
 #include <iostream>
 #include <conio.h>
@@ -9,7 +10,8 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    Doctor name;
+    GetsDiseaseData();
+/*    Doctor name;
     name = GetsDoctorData();
     PutsDoctorInfo(name);
     
@@ -18,5 +20,5 @@ int main()
     Talon num;
     num = GetsTalonData(&name);
     PutsTalonInfo(num);
-    
+  */  
 }
