@@ -11,7 +11,7 @@ Talon GetsTalonData(Doctor* med) {
 	Talon* un = (Talon*)malloc(sizeof(Talon));
 	bool flag;
 
-	printf(" <Ввод информации о докторе>\n");
+	printf(" <Ввод информации о талоне>\n");
 
 	//Дата приёма
 	Talon::Admission_Date* date = &un->Date;
@@ -56,6 +56,7 @@ Talon GetsTalonData(Doctor* med) {
 
 	un->Dok = med;
 
+	printf(" <Ввод завершён>\n");
 	return *un; 
 }
 
