@@ -27,6 +27,16 @@ Pacient GetsPacientData() {
 		}
 	} while (flag == true);
 
+	char* name_elements[] = { name->Last_Name, name->First_Name, name->Patronymic }; //Массив указателей на все элементы имени
+	int fshag = 0; //Номер символа в полной имени
+	for (int elem = 0; elem < 3; elem++) { //Цикл смены элемента имени
+		for (int eshag = 0; eshag < strlen(name_elements[elem]); fshag++, eshag++) { //Копирование элементов в полное имя.
+			un->Legal.Fio.Full_Name[fshag] = name_elements[elem][eshag];
+		}
+		un->Legal.Fio.Full_Name[fshag++] = ' ';
+	}
+	un->Legal.Fio.Full_Name[fshag] = '\0';
+
 	//Ввод Даты рождения
 	Pacient::Legal_Data::DATA_BRITH* brith = &un->Legal.Data_Brith; //Адресс структуры с Датой рождения
 	do {
@@ -80,7 +90,7 @@ void PutsPacientInfo(Pacient un) {
 	Pacient::Legal_Data::DATA_BRITH* brith = &un.Legal.Data_Brith;
 	Pacient::Legal_Data::PASPORT* pasp = &un.Legal.Pasport; //Адресс структуры с Паспортными данными
 
-	printf(" |%16s|%16s|%16s|", name->Last_Name, name->First_Name, name->Patronymic);
+	printf(" |%45s|", name->Full_Name);
 	printf("%3d.%2d.%4d|", brith->day, brith->mounth, brith->year);
 	printf("%5s%7s|%8s|", pasp->Series, pasp->Number, un.Legal.Medical_Card);
 

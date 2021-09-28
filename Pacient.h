@@ -7,7 +7,8 @@ struct Pacient {
 		struct FIO {
 			char Last_Name[15], //Фамилия
 				First_Name[15], //Имя
-				Patronymic[15]; //Отчество
+				Patronymic[15], //Отчество
+				Full_Name[45];
 		} Fio;
 
 		//Дата рождения
