@@ -95,3 +95,12 @@ void PutsPacientInfo(Pacient un) {
 	printf("%5s%7s|%8s|", pasp->Series, pasp->Number, un.Legal.Medical_Card);
 
 }
+
+
+
+
+//Привязать диагноз к пациенту
+void GiveDiagnosisPacient(Diagnosis* diagnos, Pacient* un) {
+	un->Diagn[un->Diagnosis_point] = diagnos;
+	un->Diagnosis_point++;
+}

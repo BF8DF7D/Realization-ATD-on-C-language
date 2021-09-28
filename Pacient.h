@@ -29,7 +29,9 @@ struct Pacient {
 	} Legal;
 
 	Diagnosis* Diagn[30];
+	int Diagnosis_point = 0;
 };
 
-Pacient GetsPacientData();
-void PutsPacientInfo(Pacient);
+Pacient GetsPacientData();										//Создание структуры
+void PutsPacientInfo(Pacient);									//Печать информации о пациенте
+void GiveDiagnosisPacient(Diagnosis* diagnos, Pacient* un);		//Связь дигноза с пациентом 
