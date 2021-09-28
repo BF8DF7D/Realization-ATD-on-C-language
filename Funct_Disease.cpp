@@ -6,7 +6,7 @@
 
 
 
-//Функция создания структуры "Заболевание"
+//Создание структуры "Заболевание"
 Disease GetsDiseaseData() {
 
 	Disease* un = (Disease*)malloc(sizeof(Disease));
@@ -15,34 +15,29 @@ Disease GetsDiseaseData() {
 	printf(" Наименование: ");
 	scanf("%19s", un->Name_Disease);
 
-	printf(" Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции введите 0 ");
+	printf(" Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции введите 0\n");
 
 	while (getchar() != '\n');
 
-	bool flag;
-	char elem;
-	int point = 0,
-		memory_point = 0,		//Количество символов до записи нового числа.
-		pointer_num = 0;
-
-	un->Disease_Symptoms = (char*)calloc(40, sizeof(char));
-	for (memory_point = 0; (elem = getchar()) != '0'; memory_point++) {
-		if (memory_point % 40 == 0) {
-			char* buffer = (char*)calloc(40 + memory_point, sizeof(char));
-			for (int shag = 0; shag < memory_point; shag++) {
-
-			}
+	for (int memory_point = 0, flag = true; flag != false; memory_point++) {
+		printf(" : ");
+		gets_s(un->Disease_Symptoms[memory_point]);
+		if (un->Disease_Symptoms[memory_point][0] == '0') {
+			un->Disease_Symptoms[memory_point][0] = '\0';
+			flag = false;
 		}
-		if (elem == '\n') {
-
-			*(un->Disease_Symptoms + memory_point) = '\0';
-			un->Symtoms_pointer[pointer_num++] = un->Disease_Symptoms + point;
-
-			point += (memory_point - point);
-		}
-		else
-			*(un->Disease_Symptoms + memory_point) = elem;
 	}
 
 	return *un;
+}
+
+
+
+
+//Печать структуры "Заболевание"
+void PutsGiseaseInfo(Disease un) {
+	printf(" Наименование: %s\n", un.Name_Disease);
+	printf(" Симптомы: \n");
+	for (int memory_point = 0; un.Disease_Symptoms[memory_point][0] != '\0'; memory_point++)
+		printf(" [%2d] %s\n", memory_point, un.Disease_Symptoms[memory_point]);
 }

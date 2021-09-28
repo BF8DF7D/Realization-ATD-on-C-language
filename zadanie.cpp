@@ -9,8 +9,11 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+    
+    Disease x = GetsDiseaseData();
+    puts("\n");
+    PutsGiseaseInfo(x);
 
-    GetsDiseaseData();
 /*    Doctor name;
     name = GetsDoctorData();
     PutsDoctorInfo(name);
