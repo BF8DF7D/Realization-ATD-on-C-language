@@ -1,5 +1,4 @@
-﻿#include "Talon.h"
-#include "Disease.h"
+﻿#include "Diagnosis.h"
 #include <locale.h>
 #include <iostream>
 #include <conio.h>
@@ -9,19 +8,25 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    
-    Disease x = GetsDiseaseData();
-    puts("\n");
-    PutsGiseaseInfo(x);
 
-/*    Doctor name;
-    name = GetsDoctorData();
-    PutsDoctorInfo(name);
-    
-    puts("");
-    
+    Disease prosrtuda;
+    prosrtuda = GetsDiseaseData();
+    PutsGiseaseInfo(prosrtuda);
+
+    puts("\n");
+
+    Doctor unname;
+    unname = GetsDoctorData();
+    PutsDoctorInfo(unname);
+
+    puts("\n");
+
     Talon num;
-    num = GetsTalonData(&name);
+    num = GetsTalonData(&unname);
     PutsTalonInfo(num);
-  */  
+
+    Diagnosis diagnoz;
+    diagnoz = GetsDiagnosisData(&num, &prosrtuda);
+    PutsDiagnosisInfo(diagnoz);
+    _getch();
 }

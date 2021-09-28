@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Funct_Diagnosis.cpp" />
     <ClCompile Include="Funct_Disease.cpp" />
     <ClCompile Include="Funct_Doctor.cpp" />
     <ClCompile Include="Funct_Talon.cpp" />
