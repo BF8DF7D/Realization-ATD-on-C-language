@@ -35,3 +35,4 @@ struct Pacient {
 Pacient GetsPacientData();										//Создание структуры
 void PutsPacientInfo(Pacient);									//Печать информации о пациенте
 void GiveDiagnosisPacient(Diagnosis* diagnos, Pacient* un);		//Связь дигноза с пациентом 
+bool DiseaseOfPacient(char disease[], Pacient un);				//Переносил ли пациент данное заболевание.

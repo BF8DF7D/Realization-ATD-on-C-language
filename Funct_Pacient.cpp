@@ -104,3 +104,20 @@ void GiveDiagnosisPacient(Diagnosis* diagnos, Pacient* un) {
 	un->Diagn[un->Diagnosis_point] = diagnos;
 	un->Diagnosis_point++;
 }
+
+
+
+//Переносил ли пациент данное заболевание.
+bool DiseaseOfPacient(char disease[], Pacient un) {
+	bool flag = true;
+	for (int diagnosis = 0; diagnosis < un.Diagnosis_point; diagnosis++) {
+		if (strlen(disease) == strlen(un.Diagn[diagnosis]->Dis->Name_Disease))
+			for (int char_point = 0; disease[char_point] != '\0' && flag != false; char_point++) 
+				if (un.Diagn[diagnosis]->Dis->Name_Disease[char_point] != disease[char_point])		//Сравнение наименований болезней
+					flag = false;
+		else
+			flag = false;
+	}
+	return flag;
+
+}
