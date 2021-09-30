@@ -142,6 +142,7 @@
     <ClCompile Include="Funct_Diagnosis.cpp" />
     <ClCompile Include="Funct_Disease.cpp" />
     <ClCompile Include="Funct_Doctor.cpp" />
+    <ClCompile Include="Funct_Pacient.cpp" />
     <ClCompile Include="Funct_Talon.cpp" />
     <ClCompile Include="zadanie.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="Diagnosis.h" />
     <ClInclude Include="Disease.h" />
     <ClInclude Include="Doctor.h" />
+    <ClInclude Include="Pacient.h" />
     <ClInclude Include="Talon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
