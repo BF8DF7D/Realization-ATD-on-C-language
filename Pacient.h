@@ -29,7 +29,7 @@ struct Pacient {
 	} Legal;
 
 	Diagnosis* Diagn[30];
-	int Diagnosis_point = 0;
+	int Diagnosis_point;
 };
 
 Pacient GetsPacientData();										//Создание структуры
