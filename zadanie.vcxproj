@@ -143,6 +143,7 @@
     <ClCompile Include="Funct_Diagnosis.cpp" />
     <ClCompile Include="Funct_Disease.cpp" />
     <ClCompile Include="Funct_Doctor.cpp" />
+    <ClCompile Include="Funct_FIO.cpp" />
     <ClCompile Include="Funct_Pacient.cpp" />
     <ClCompile Include="Funct_Talon.cpp" />
     <ClCompile Include="Funct_Time.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Diagnosis.h" />
     <ClInclude Include="Disease.h" />
     <ClInclude Include="Doctor.h" />
+    <ClInclude Include="FIO.h" />
     <ClInclude Include="Pacient.h" />
     <ClInclude Include="Talon.h" />
     <ClInclude Include="Time.h" />
