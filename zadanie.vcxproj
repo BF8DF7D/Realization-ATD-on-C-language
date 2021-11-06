@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Funct_Date.cpp" />
     <ClCompile Include="Funct_Diagnosis.cpp" />
     <ClCompile Include="Funct_Disease.cpp" />
     <ClCompile Include="Funct_Doctor.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="zadanie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Date.h" />
     <ClInclude Include="Diagnosis.h" />
     <ClInclude Include="Disease.h" />
     <ClInclude Include="Doctor.h" />
