@@ -144,6 +144,7 @@
     <ClCompile Include="Funct_Doctor.cpp" />
     <ClCompile Include="Funct_Pacient.cpp" />
     <ClCompile Include="Funct_Talon.cpp" />
+    <ClCompile Include="Funct_Time.cpp" />
     <ClCompile Include="zadanie.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="Pacient.h" />
     <ClInclude Include="Talon.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
