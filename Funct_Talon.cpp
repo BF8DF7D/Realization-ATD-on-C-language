@@ -8,56 +8,54 @@
 //Функция создания структуры "Талон"
 Talon GetsTalonData(Doctor* med) {
 
-	Talon* un = (Talon*)malloc(sizeof(Talon));
-	bool flag;
+	Talon* talon = (Talon*)malloc(sizeof(Talon));
+	bool False_Input_Value;
 
-	printf(" <Ввод информации о талоне>\n");
+	std::cout << " <Ввод информации о талоне>" << std::endl;
 
 	//Дата приёма
-	Talon::Admission_Date* date = &un->Date;
 	do {
-		printf(" Дата приёма: ");
-		flag = scanf("%d.%d.%d", &date->day, &date->mounth, &date->year) != 3
-			|| (date->day <= 0 || date->day > 31)
-			|| (date->mounth <= 0 || date->mounth > 12)
-			|| (date->year <= 999 || date->year > 9999)
-			|| getchar() != '\n';
-		if (flag == true) {
-			while (getchar() != '\n');
-			printf("\n <Дата приёма введена некорректно>\n");
+		std::cout << " Дата приёма : ";
+		False_Input_Value = SetDateData(&talon->Admission_Date);
+		if (False_Input_Value) {
+			while (std::cin.get() != '\n');
+			std::cout << "\n <Дата приёма введена некорректно>" << std::endl;
 		}
-	} while (flag == true);
+	} while (False_Input_Value);
 
 	//Время приёма
-	Talon::Admission_Time* time = &un->Time;
 	do {
-		printf(" Время приёма: ");
-		flag = scanf("%d.%d", &time->hour, &time->minutes) != 2
-			|| (time->hour < 0 || time->hour > 23)
-			|| (time->minutes < 0 || time->minutes > 59)
-			|| getchar() != '\n';
-		if (flag == true) {
-			while (getchar() != '\n');
-			printf("\n <Время приёма введено некорректно>\n");
+		std::cout << " Время приёма: ";
+		False_Input_Value = SetTimeData(&talon->Admission_Time);
+		if (False_Input_Value) {
+			while (std::cin.get() != '\n');
+			std::cout << "\n <Время приёма введено некорректно>" << std::endl;
 		}
-	} while (flag == true);
+	} while (False_Input_Value);
 
+
+	enum Limit_Value_for_Number {
+		Quantity_input_value = 1,
+		Minimum_value_for_number = 999,
+		Maximum_number = 23,
+		Clean_input_stream = '\n'
+	};
 	//Номер кабинета
 	do {
-		printf(" Номер кабинета: ");
-		flag = scanf("%d", &un->kabinet) != 1
-			|| (un->kabinet <= 0 || un->kabinet > 500)
-			|| getchar() != '\n';
-		if (flag == true) {
-			while (getchar() != '\n');
-			printf("\n <Номер кабинета введен некорректно>\n");
+		std::cout << " Номер кабинета: ";
+		False_Input_Value = scanf("%d", &talon->kabinet) != Quantity_input_value
+			|| (talon->kabinet <= Minimum_value_for_number || talon->kabinet > Maximum_number)
+			|| std::cin.get() != Clean_input_stream;
+		if (False_Input_Value) {
+			while (std::cin.get() != '\n');
+			std::cout << "\n <Номер кабинета введен некорректно>" << std::endl;
 		}
-	} while (flag == true);
+	} while (False_Input_Value);
 
-	un->Dok = med;
+	talon->Dok = med;
 
-	printf(" <Ввод завершён>\n");
-	return *un; 
+	std::cout << " <Ввод завершён>" << std::endl;
+	return *talon; 
 }
 
 
@@ -65,10 +63,8 @@ Talon GetsTalonData(Doctor* med) {
 
 //Вывод структуры "Талон"
 void PutsTalonInfo(Talon un) {
-	Talon::Admission_Date* date = &un.Date;
-	Talon::Admission_Time* time = &un.Time;
 
 	printf("|%45s|", un.Dok->Fio.Full_Name);
-	printf("%3d.%2d.%4d|", date->day, date->mounth, date->year);
-	printf("%3d.%2d|%4d|\n", time->hour, time->minutes, un.kabinet);
+	printf(" %02d.%02d.%04d|", un.Admission_Date.day, un.Admission_Date.mounth, un.Admission_Date.year);
+	printf("%03d.%02d| %03d|\n", un.Admission_Time.hour, un.Admission_Time.minutes, un.kabinet);
 }
