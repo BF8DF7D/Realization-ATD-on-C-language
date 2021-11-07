@@ -17,5 +17,7 @@ bool SetDateData(Date* date){
 		|| (date->mounth <= Minimum_for_days_and_months || date->mounth > Maximum_mounth)
 		|| (date->year <= Minimum_value_for_years || date->year > Maximum_years)
 		|| std::cin.get() != Clean_input_stream;
+	std::cin.clear();
+
 	return False_Input_Value;
 }

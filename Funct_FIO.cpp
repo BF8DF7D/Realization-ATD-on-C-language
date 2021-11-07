@@ -11,14 +11,17 @@ bool SetFIOData(FIO* fio) {
 	std::getline(std::cin, fio->Full_Name);
 	std::stringstream stream(fio->Full_Name);
 	std::string name_elements[] = { fio->Last_Name, fio->First_Name, fio->Patronymic };
-	
-	int Quantity_value;
-	for (Quantity_value = 0; !stream.eof(); Quantity_value++) {
-		if (Quantity_value != Quantity_input_value)
-			stream >> name_elements[Quantity_value];
+
+	int Input_value_numbers;
+	for (Input_value_numbers = 0; !stream.eof(); Input_value_numbers++) {
+		if (Input_value_numbers != Quantity_input_value)
+			stream >> name_elements[Input_value_numbers];
+		else
+			break;
 	}
-	
-	bool False_Input_Value = (Quantity_value != Quantity_input_value);
+
+	bool False_Input_Value = (Input_value_numbers != Quantity_input_value 
+		|| (Input_value_numbers == Quantity_input_value && !stream.eof()));
 
 	return False_Input_Value;
 }

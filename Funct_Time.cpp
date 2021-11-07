@@ -15,5 +15,7 @@ bool SetTimeData(Time* time) {
 		|| (time->hour < Minimum_value_for_all || time->hour > Maximum_hour)
 		|| (time->minutes < Minimum_value_for_all || time->minutes > Maximum_minutes)
 		|| std::cin.get() != Clean_input_stream;
+	std::cin.clear();
+
 	return False_Input_Value;
 }

@@ -14,23 +14,21 @@ Disease GetsDiseaseData() {
 	std::cout << " <Ввод информации о заболевании>" << std::endl;
 	std::cout << " Наименование: ";
 	std::getline(std::cin, disease->Name_Disease);
-//	std::cin;
-
+	std::cin.clear();
+	
 	std::cout << " Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции введите 0" << std::endl;
 
 	for (int Input_value_number = 0, Exid_value = false; !Exid_value; Input_value_number++) {
 		std::cout << " : ";
 		std::getline(std::cin, disease->Disease_Symptoms[Input_value_number]);
+		std::cin.clear();
 		if (disease->Disease_Symptoms[Input_value_number].empty()) {
 			Exid_value = true;
 		}
 	}
-
+	
 	return *disease;
 }
-
-
-
 
 //Печать структуры "Заболевание"
 void PutsGiseaseInfo(Disease disease) {
@@ -44,7 +42,8 @@ void PutsGiseaseInfo(Disease disease) {
 	int Input_value_number = 0;
 	while (Input_value_number < Symptoms_maximum_quantity
 		&& !disease.Disease_Symptoms[Input_value_number].empty()) {
-		std::cout << " [" << std::setfill('0') << Input_value_number + 1 << std::setw(2) << "] ";
+		std::cout.fill('0');
+		std::cout << " [" << std::cout.fill('0') << Input_value_number + 1 << std::setw(2) << "] ";
 		std::cout << disease.Disease_Symptoms[Input_value_number++] << std::endl;
 	}
 }

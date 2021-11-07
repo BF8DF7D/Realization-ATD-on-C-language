@@ -17,7 +17,7 @@ Doctor GetsDoctorData() {
 		std::cout << " ФИО: ";
 		False_Input_Value = SetFIOData(&doctor->Fio);
 		if (False_Input_Value) {
-			while (std::cin.get() != '\n');
+			std::cin.clear();
 			std::cout << "\n <ФИО введено некорректно>" << std::endl;
 		}
 	} while (False_Input_Value);

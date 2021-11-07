@@ -10,4 +10,5 @@ struct Talon{
 };
 
 Talon GetsTalonData(Doctor* );		//Функция создания структуры "Талон"
+bool GetKabinet(int*);
 void PutsTalonInfo(Talon);	//Вывод структуры "Талон"
