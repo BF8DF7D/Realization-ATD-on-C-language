@@ -1,8 +1,9 @@
+#include <iostream>
 
 struct Disease {
-	char Name_Disease[20],
-		Disease_Symptoms[30][50];
+	std::string Name_Disease,
+		Disease_Symptoms[50];
 };
 
 Disease GetsDiseaseData();			//Создание структуры "Заболевание"
-void PutsGiseaseInfo(Disease un);	//Печать структуры "Заболевание"
+void PutsGiseaseInfo(Disease);	//Печать структуры "Заболевание"

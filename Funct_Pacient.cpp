@@ -114,12 +114,13 @@ bool DiseaseOfPacient(char* disease, Pacient un) {
 	bool flag = false;
 	for (int diagnosis = 0; diagnosis < un.Diagnosis_point && flag != true; diagnosis++) {
 		flag = true;
-		if (strlen(disease) == strlen(un.Diagn[diagnosis]->Dis->Name_Disease)) {
+//		if (strlen(disease) == strlen(un.Diagn[diagnosis]->disease->Name_Disease))
+		{
 			for (int char_point = 0; disease[char_point] != '\0' && flag != false; char_point++)
-				if (un.Diagn[diagnosis]->Dis->Name_Disease[char_point] != disease[char_point])					//Сравнение наименований болезней
+				if (un.Diagn[diagnosis]->disease->Name_Disease[char_point] != disease[char_point])					//Сравнение наименований болезней
 					flag = false;
 		}
-		else
+//		else
 			flag = false;
 	}
 	return flag;

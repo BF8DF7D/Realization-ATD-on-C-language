@@ -1,27 +1,35 @@
 #include "Diagnosis.h"
 #include <iostream>
+#include <iomanip>
 
 
 
 //Струкутура "Диагноз"
 Diagnosis GetsDiagnosisData(Talon* Dok, Disease* Dis) {
-	Diagnosis* un = (Diagnosis*)malloc(sizeof(Diagnosis));
-	un->Tal = Dok;
-	un->Dis = Dis;
+	Diagnosis* diagnosis = (Diagnosis*)malloc(sizeof(Diagnosis));
+	diagnosis->talon = Dok;
+	diagnosis->disease = Dis;
 	
-	return *un;
+	return *diagnosis;
 }
 
 
 
 //Печать структуры 
-void PutsDiagnosisInfo(Diagnosis un) {
-	Talon::Admission_Date* date = &un.Tal->Date;
-	Talon::Admission_Time* time = &un.Tal->Time;
+void PutsDiagnosisInfo(Diagnosis diagnosis) {
+	Date* date = &diagnosis.talon->Admission_Date;
+	Time* time = &diagnosis.talon->Admission_Time;
 
-	printf(" Доктор: %s\n", un.Tal->Dok->Fio.Full_Name);
-	printf(" Дата приёма: %d.%d.%d\n", date->day, date->mounth, date->year);
-	printf(" Время приёма: %d.%d\n", time->hour, time->minutes);
-	printf(" Кабинет: %d\n", un.Tal->kabinet);
-	PutsGiseaseInfo(*(un.Dis));
+	std::cout << " Доктор: " << std::setw(45) << diagnosis.talon->Dok->Fio.Full_Name << std::endl;
+
+	std::cout << " Дата приёма: " << std::setw(2) << std::cout.fill('0') << date->day << ".";
+	std::cout << std::setw(2) << std::cout.fill('0') << date->mounth << ".";
+	std::cout << std::setw(4) << date->year << std::endl;
+
+	std::cout << " Время приёма: " << std::setw(2) << std::cout.fill('0') << time->hour << ".";
+	std::cout << std::setw(2) << std::cout.fill('0') << time->minutes << std::endl;
+
+	std::cout << std::setw(3) << std::cout.fill('0') << diagnosis.talon->kabinet << std::endl;
+	
+	PutsGiseaseInfo(*diagnosis.disease);
 }

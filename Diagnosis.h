@@ -3,8 +3,8 @@
 
 //Диагноз пациента
 struct Diagnosis {
-	Talon* Tal;		//Талон с информацией о заключении дигноза
-	Disease* Dis;	//Информация о диагнозе
+	Talon* talon;		//Талон с информацией о заключении дигноза
+	Disease* disease;	//Информация о диагнозе
 };
 
 Diagnosis GetsDiagnosisData(Talon* Dok, Disease* Dis);		//Струкутура "Диагноз"

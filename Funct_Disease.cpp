@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Disease.h"
-#include <iostream>
 #include <conio.h>
+#include <string>
 
 
 
@@ -9,35 +9,35 @@
 //Создание структуры "Заболевание"
 Disease GetsDiseaseData() {
 
-	Disease* un = (Disease*)malloc(sizeof(Disease));
-	printf(" <Ввод информации о заболевании>\n");
+	Disease* disease = new Disease;
+	std::cout << " <Ввод информации о заболевании>" << std::endl;
+	std::cout << " Наименование: ";
+	std::getline(std::cin, disease->Name_Disease);
+//	std::cin;
 
-	printf(" Наименование: ");
-	scanf("%19s", un->Name_Disease);
+	std::cout << " Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции введите 0" << std::endl;
 
-	printf(" Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции введите 0\n");
-
-	while (getchar() != '\n');
-
-	for (int memory_point = 0, flag = true; flag != false; memory_point++) {
-		printf(" : ");
-		gets_s(un->Disease_Symptoms[memory_point]);
-		if (un->Disease_Symptoms[memory_point][0] == '0') {
-			un->Disease_Symptoms[memory_point][0] = '\0';
-			flag = false;
+	for (int Input_value_number = 0, Exid_value = false; !Exid_value; Input_value_number++) {
+		std::cout << " : ";
+		std::getline(std::cin, disease->Disease_Symptoms[Input_value_number]);
+		if (disease->Disease_Symptoms[Input_value_number].empty()) {
+			Exid_value = true;
 		}
 	}
 
-	return *un;
+	return *disease;
 }
 
 
 
 
 //Печать структуры "Заболевание"
-void PutsGiseaseInfo(Disease un) {
-	printf(" Наименование: %s\n", un.Name_Disease);
-	printf(" Симптомы: \n");
-	for (int memory_point = 0; un.Disease_Symptoms[memory_point][0] != '\0'; memory_point++)
-		printf(" [%2d] %s\n", memory_point, un.Disease_Symptoms[memory_point]);
+void PutsGiseaseInfo(Disease disease) {
+	std::cout << " Наименование: " << disease.Name_Disease << std::endl;
+	std::cout << " Симптомы: " << std::endl;
+	
+	int Input_value_number = 0;
+	while (Input_value_number < 50 && !disease.Disease_Symptoms[Input_value_number].empty()) {
+		std::cout << disease.Disease_Symptoms[Input_value_number++] << std::endl;
+	}
 }

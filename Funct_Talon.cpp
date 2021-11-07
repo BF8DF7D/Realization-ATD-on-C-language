@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Talon.h"
 #include <iostream>
+#include <iomanip>
 
 
 
@@ -62,9 +63,15 @@ Talon GetsTalonData(Doctor* med) {
 
 
 //Вывод структуры "Талон"
-void PutsTalonInfo(Talon un) {
+void PutsTalonInfo(Talon talon) {
+	std::cout << " " << std::setw(45) << talon.Dok->Fio.Full_Name << "| ";
+	
+	std::cout << std::setw(2) << std::cout.fill('0') << talon.Admission_Date.day << ".";
+	std::cout << std::setw(2) << std::cout.fill('0') << talon.Admission_Date.mounth << ".";
+	std::cout << std::setw(4) << talon.Admission_Date.year << "| ";
+	
+	std::cout << std::setw(2) << std::cout.fill('0') << talon.Admission_Time.hour << ".";
+	std::cout << std::setw(2) << std::cout.fill('0') << talon.Admission_Time.minutes << "| ";
 
-	printf("|%45s|", un.Dok->Fio.Full_Name);
-	printf(" %02d.%02d.%04d|", un.Admission_Date.day, un.Admission_Date.mounth, un.Admission_Date.year);
-	printf("%03d.%02d| %03d|\n", un.Admission_Time.hour, un.Admission_Time.minutes, un.kabinet);
+	std::cout << std::setw(3) << std::cout.fill('0') << talon.kabinet << "|";
 }

@@ -1,14 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Doctor.h"
 #include <iostream>
-
+#include <iomanip>
+#include <string>
 
 
 
 //Созание структуры "Доктор"
 Doctor GetsDoctorData() {
 	Doctor* doctor = (Doctor*)malloc(sizeof(Doctor));
-	bool flag;
 
 	printf(" <Ввод информации о докторе>\n");
 	
@@ -24,7 +24,7 @@ Doctor GetsDoctorData() {
 
 
 	std::cout << " Должность: ";
-	scanf("%19s", doctor->dolgnost);
+	std::getline(std::cin, doctor->dolgnost);
 	
 	std::cout << " <Ввод завершён>" << std::endl;
 	return *doctor;
@@ -34,6 +34,7 @@ Doctor GetsDoctorData() {
 
 
 //Вывод структуры "Доктор"
-void PutsDoctorInfo(Doctor un) {
-	printf(" |%45s|%20s|\n", un.Fio.Full_Name, un.dolgnost);
+void PutsDoctorInfo(Doctor doctor) {
+	std::cout << " |" << std::setw(45) << doctor.Fio.Full_Name << " | ";
+	std::cout << std::setw(20) << doctor.dolgnost << " |" << std::endl;
 }
