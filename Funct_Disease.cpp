@@ -2,6 +2,7 @@
 #include "Disease.h"
 #include <conio.h>
 #include <string>
+#include <iomanip>
 
 
 
@@ -36,8 +37,14 @@ void PutsGiseaseInfo(Disease disease) {
 	std::cout << " Наименование: " << disease.Name_Disease << std::endl;
 	std::cout << " Симптомы: " << std::endl;
 	
+	enum Limit_Value {
+		Symptoms_maximum_quantity = 50
+	};
+	
 	int Input_value_number = 0;
-	while (Input_value_number < 50 && !disease.Disease_Symptoms[Input_value_number].empty()) {
+	while (Input_value_number < Symptoms_maximum_quantity
+		&& !disease.Disease_Symptoms[Input_value_number].empty()) {
+		std::cout << " [" << std::setfill('0') << Input_value_number + 1 << std::setw(2) << "] ";
 		std::cout << disease.Disease_Symptoms[Input_value_number++] << std::endl;
 	}
 }

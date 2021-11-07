@@ -9,7 +9,7 @@
 //Функция создания структуры "Талон"
 Talon GetsTalonData(Doctor* med) {
 
-	Talon* talon = (Talon*)malloc(sizeof(Talon));
+	Talon* talon = new Talon;
 	bool False_Input_Value;
 
 	std::cout << " <Ввод информации о талоне>" << std::endl;

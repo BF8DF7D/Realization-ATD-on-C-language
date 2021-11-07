@@ -8,7 +8,7 @@
 
 //Созание структуры "Доктор"
 Doctor GetsDoctorData() {
-	Doctor* doctor = (Doctor*)malloc(sizeof(Doctor));
+	Doctor* doctor = new Doctor;
 
 	printf(" <Ввод информации о докторе>\n");
 	

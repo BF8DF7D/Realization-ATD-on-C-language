@@ -6,7 +6,7 @@
 
 //Струкутура "Диагноз"
 Diagnosis GetsDiagnosisData(Talon* Dok, Disease* Dis) {
-	Diagnosis* diagnosis = (Diagnosis*)malloc(sizeof(Diagnosis));
+	Diagnosis* diagnosis = new Diagnosis;
 	diagnosis->talon = Dok;
 	diagnosis->disease = Dis;
 	
