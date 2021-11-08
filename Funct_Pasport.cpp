@@ -1,6 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "Pasport.h"
 
-bool SetPasportData(Pasport* pasport) {
+void SetPasportData(Pasport* pasport){
+	bool False_Input_Value;
+	do {
+		std::cout << " Время приёма: ";
+		False_Input_Value = BoolInputPasport(pasport);
+		if (False_Input_Value) {
+			std::cout << "\n <Время приёма введено некорректно>" << std::endl;
+		}
+	} while (False_Input_Value);
+}
+
+bool BoolInputPasport(Pasport* pasport) {
 	enum Limit_Value {
 		Quantity_inpyt_value = 2,
 		Minimum_value_for_all = 1,

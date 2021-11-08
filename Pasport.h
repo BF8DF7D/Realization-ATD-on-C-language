@@ -4,4 +4,5 @@ struct Pasport {
 	int Series, //Cерия бланка паспорта
 		Number; //Порядковый номер паспорта в серии
 };
-bool SetPasportData(Pasport*);
+bool BoolInputPasport(Pasport*);
+void SetPasportData(Pasport*);

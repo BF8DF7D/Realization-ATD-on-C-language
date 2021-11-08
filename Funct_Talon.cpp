@@ -13,26 +13,9 @@ Talon GetsTalonData(Doctor* med) {
 	bool False_Input_Value;
 
 	std::cout << " <Ввод информации о талоне>" << std::endl;
-
-	//Дата приёма
-	do {
-		std::cout << " Дата приёма : ";
-		False_Input_Value = SetDateData(&talon->Admission_Date);
-		if (False_Input_Value) {
-			std::cout << "\n <Дата приёма введена некорректно>" << std::endl;
-		}
-	} while (False_Input_Value);
-
-	//Время приёма
-	do {
-		std::cout << " Время приёма: ";
-		False_Input_Value = SetTimeData(&talon->Admission_Time);
-		if (False_Input_Value) {
-			std::cout << "\n <Время приёма введено некорректно>" << std::endl;
-		}
-	} while (False_Input_Value);
+	SetDateData(&talon->Admission_Date);
+	SetTimeData(&talon->Admission_Time);
 	
-	//Номер кабинета
 	do {
 		std::cout << " Номер кабинета: ";
 		False_Input_Value = GetKabinet(&talon->kabinet);
