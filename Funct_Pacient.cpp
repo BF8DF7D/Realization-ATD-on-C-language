@@ -8,16 +8,12 @@
 //Создание структуры Pacient
 Pacient GetsPacientData() {
 
-	Pacient* un = (Pacient*)malloc(sizeof(Pacient));
-	bool flag;
+	Pacient* pacient = new Pacient;
+	bool False_Input_Value;
 
-	printf(" <Ввод информации о пацинте>\n");
-
-	//Ввод ФИО
-
-	Pacient::Legal_Data::FIO* name = &un->Legal.Fio; //Адресс структуры с ФИО
+	std::cout << " <Ввод информации о пацинте>" << std::endl;
+	
 	do {
-
 		printf(" ФИО: ");
 		flag = scanf("%14s%14s%14s", name->Last_Name, name->First_Name, name->Patronymic) != 3 //Ввод трёх строк
 			|| getchar() != '\n'; //Мусор после ввода

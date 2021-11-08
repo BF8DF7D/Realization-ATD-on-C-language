@@ -145,6 +145,7 @@
     <ClCompile Include="Funct_Doctor.cpp" />
     <ClCompile Include="Funct_FIO.cpp" />
     <ClCompile Include="Funct_Pacient.cpp" />
+    <ClCompile Include="Funct_Pasport.cpp" />
     <ClCompile Include="Funct_Talon.cpp" />
     <ClCompile Include="Funct_Time.cpp" />
     <ClCompile Include="zadanie.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Doctor.h" />
     <ClInclude Include="FIO.h" />
     <ClInclude Include="Pacient.h" />
+    <ClInclude Include="Pasport.h" />
     <ClInclude Include="Talon.h" />
     <ClInclude Include="Time.h" />
   </ItemGroup>

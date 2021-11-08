@@ -1,32 +1,11 @@
 #include "Diagnosis.h"
+#include "Pasport.h"
 
 struct Pacient {
-	//Юридические данные
-	struct Legal_Data {
-		//ФИО пациента
-		struct FIO {
-			char Last_Name[15], //Фамилия
-				First_Name[15], //Имя
-				Patronymic[15], //Отчество
-				Full_Name[45];
-		} Fio;
-
-		//Дата рождения
-		struct DATA_BRITH {
-			int day, //День
-				mounth, //Месяц
-				year; //Год
-		} Data_Brith;
-
-		//Паспотрные данные
-		struct PASPORT {
-			char Series[5], //Cерия бланка паспорта
-				Number[7]; //Порядковый номер паспорта в серии
-		} Pasport;
-
-		char Medical_Card[8]; //Номер медицинской карты
-
-	} Legal;
+	FIO Fio;
+	Date Data_Brith;
+	Pasport pasport;
+	int Medical_Card; 
 
 	Diagnosis* Diagn[30];
 	int Diagnosis_point;
