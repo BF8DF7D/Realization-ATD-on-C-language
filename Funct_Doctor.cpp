@@ -11,17 +11,7 @@ Doctor GetsDoctorData() {
 	Doctor* doctor = new Doctor;
 
 	printf(" <Ввод информации о докторе>\n");
-	
-	bool False_Input_Value;
-	do {
-		std::cout << " ФИО: ";
-		False_Input_Value = SetFIOData(&doctor->Fio);
-		if (False_Input_Value) {
-			std::cin.clear();
-			std::cout << "\n <ФИО введено некорректно>" << std::endl;
-		}
-	} while (False_Input_Value);
-
+	SetFIOData(&doctor->Fio);
 
 	std::cout << " Должность: ";
 	std::getline(std::cin, doctor->dolgnost);

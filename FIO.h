@@ -7,4 +7,5 @@ struct FIO {
 		Full_Name;
 };
 
-bool SetFIOData(FIO*);
+bool ItFalseInputFIO(FIO*);
+void SetFIOData(FIO*);
