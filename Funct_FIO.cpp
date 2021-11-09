@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
+#include "FIO.h"
 #include <string>
 #include <sstream>
-#include "FIO.h"
+#include <iomanip>
 
 void SetFIOData(FIO* fio) {
 	bool False_Input_Value;
@@ -14,7 +15,7 @@ void SetFIOData(FIO* fio) {
 	} while (False_Input_Value);
 }
 
-bool BoolInputFIO(FIO* fio) {
+bool BoolFormatInputFIO(FIO* fio) {
 	std::getline(std::cin, fio->Full_Name);
 	std::cin.clear();
 	std::stringstream Name_elements_stream(fio->Full_Name);
@@ -34,4 +35,8 @@ bool BoolInputFIO(FIO* fio) {
 	bool False_Input_Value = Input_value_numbers != Quantity_input_value;
 
 	return False_Input_Value;
+}
+
+void PrintFIOInfo(FIO fio) {
+	std::cout << std::setw(45) << fio.Full_Name;
 }

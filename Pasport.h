@@ -6,3 +6,4 @@ struct Pasport {
 };
 bool BoolFormatInputPasport(Pasport*);
 void SetPasportData(Pasport*);
+void PrintPasportInfo(Pasport);

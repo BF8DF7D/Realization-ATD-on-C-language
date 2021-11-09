@@ -8,3 +8,4 @@ struct Time {
 
 bool BoolFormatInputTime(Time*);
 void SetTimeData(Time*);
+void PrintTimeInfo(Time);

@@ -9,3 +9,4 @@ struct Date {
 
 bool BoolFormatInputDate(Date*);
 void SetDateData(Date*);
+void PrintDateInfo(Date);

@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Time.h"
+#include <iomanip>
 
 void SetTimeData(Time* time) {
 	bool False_Input_Value;
@@ -29,4 +30,9 @@ bool BoolFormatInputTime(Time* time) {
 	std::cin.clear();
 
 	return False_Input_Value;
+}
+
+void PrintTimeInfo(Time time) {
+	std::cout << std::setfill('0') << std::setw(2) << time.hour << ".";
+	std::cout << std::setfill('0') << std::setw(2) << time.minutes;
 }

@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Date.h"
+#include <iomanip>
 
 void SetDateData(Date* date) {
 	bool False_Input_Value;
@@ -12,7 +13,7 @@ void SetDateData(Date* date) {
 	} while (False_Input_Value);
 }
 
-bool BoolInputDate(Date* date){
+bool BoolFormatInputDate(Date* date){
 	enum Limit_Value {
 		Quantity_input_value = 3,
 		Minimum_for_days_and_months = 0,
@@ -31,4 +32,10 @@ bool BoolInputDate(Date* date){
 	std::cin.clear();
 
 	return False_Input_Value;
+}
+
+void PrintDateInfo(Date date) {
+	std::cout << std::setfill('0') << std::setw(2) << date.day << ".";
+	std::cout << std::setfill('0') << std::setw(2) << date.mounth << ".";
+	std::cout << std::setw(4) << date.year;
 }

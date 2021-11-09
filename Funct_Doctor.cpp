@@ -25,6 +25,8 @@ Doctor GetsDoctorData() {
 
 //Вывод структуры "Доктор"
 void PutsDoctorInfo(Doctor doctor) {
-	std::cout << " |" << std::setw(45) << doctor.Fio.Full_Name << " | ";
+	std::cout << " | ";
+	PrintFIOInfo(doctor.Fio);
+	std::cout << " | ";
 	std::cout << std::setw(20) << doctor.dolgnost << " |" << std::endl;
 }

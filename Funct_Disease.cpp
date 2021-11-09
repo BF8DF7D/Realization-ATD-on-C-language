@@ -42,8 +42,7 @@ void PutsGiseaseInfo(Disease disease) {
 	int Input_value_number = 0;
 	while (Input_value_number < Symptoms_maximum_quantity
 		&& !disease.Disease_Symptoms[Input_value_number].empty()) {
-		std::cout.fill('0');
-		std::cout << " [" << std::cout.fill('0') << Input_value_number + 1 << std::setw(2) << "] ";
+		std::cout << " [" << std::setfill('0') << std::setw(2) << Input_value_number + 1 << "] ";
 		std::cout << disease.Disease_Symptoms[Input_value_number++] << std::endl;
 	}
 }

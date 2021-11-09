@@ -48,16 +48,14 @@ bool GetKabinet(int* kabinet ) {
 
 //Вывод структуры "Талон"
 void PutsTalonInfo(Talon talon) {
-	std::cout << " |" << std::setw(45) << talon.Dok->Fio.Full_Name << "| ";
-	
+	std::cout << " | "; 
+	PrintFIOInfo(talon.Dok->Fio);
+	std::cout << " | ";
+	PrintDateInfo(talon.Admission_Date);
+	std::cout << " | ";
+	PrintTimeInfo(talon.Admission_Time);
+	std::cout << " | ";
 	std::cout.fill('0');
-	std::cout << std::cout.fill('0') << talon.Admission_Date.day << std::setw(2) << ".";
-	std::cout << std::cout.fill('0') << talon.Admission_Date.mounth << std::setw(2) << ".";
-	std::cout << talon.Admission_Date.year << std::setw(4) << "| ";
-	
-	std::cout << std::cout.fill('0') << talon.Admission_Time.hour << std::setw(2) << ".";
-	std::cout << std::cout.fill('0') << talon.Admission_Time.minutes << std::setw(2) << "| ";
-
-	std::cout << std::cout.fill('0') << talon.kabinet << std::setw(3) << "|";
+	std::cout << std::cout.fill('0') << talon.kabinet << std::setw(3) << " |";
 	
 }

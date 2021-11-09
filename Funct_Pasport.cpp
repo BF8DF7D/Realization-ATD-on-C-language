@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Pasport.h"
+#include <iomanip>
 
 void SetPasportData(Pasport* pasport){
 	bool False_Input_Value;
@@ -28,4 +29,10 @@ bool BoolFormatInputPasport(Pasport* pasport) {
 	std::cin.clear();
 
 	return False_Input_Value;
+}
+
+void PrintPasportInfo(Pasport pasport) {
+	std::cout << std::setfill('0') << std::setw(4) << pasport.Series;
+	std::cout << " ";
+	std::cout << std::setfill('0') << std::setw(4) << pasport.Number;
 }

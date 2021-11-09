@@ -1,8 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Pacient.h"
-#include <sstream>
 #include <iostream>
-#include <string>
+#include <iomanip>
 
 
 
@@ -48,26 +47,54 @@ bool BoolFormatInputCard(int* number) {
 }
 
 
-/*
+
 //Вывод стурктуры Pacient
-void PutsPacientInfo(Pacient un) {
-	Pacient::Legal_Data::FIO* name = &un.Legal.Fio;
-	Pacient::Legal_Data::DATA_BRITH* brith = &un.Legal.Data_Brith;
-	Pacient::Legal_Data::PASPORT* pasp = &un.Legal.Pasport; //Адресс структуры с Паспортными данными
+void PrintPacientInfo(Pacient pacient) {
 
-	printf(" |%45s|", name->Full_Name);
-	printf("%3d.%2d.%4d|", brith->day, brith->mounth, brith->year);
-	printf("%5s%7s|%8s|", pasp->Series, pasp->Number, un.Legal.Medical_Card);
+	std::cout << " <Персональные данные>" << std::endl;
+	std::cout << " ФИО пациента            : ";
+	PrintFIOInfo(pacient.Fio);
+	std::cout << std::endl;
+	std::cout << " Серия и номер паспорта  : ";
+	PrintPasportInfo(pacient.pasport);
+	std::cout << std::endl;
+	std::cout << " Дата рождения           : ";
+	PrintDateInfo(pacient.Data_Brith);
+	std::cout << std::endl;
+	std::cout << " Номер медецинской карты : ";
+	std::cout << std::uppercase << std::hex << pacient.Medical_Card ;
+	std::cout << " <Краткая история болезни>" << std::endl;
 
+	if (pacient.Diagnosis_point > 0) {
+		std::cout << " Общее число зарегистрированных заболеваний: " << pacient.Diagnosis_point << std::endl;
+		std::cout << "    Наименование болезни :       Дата : Время :" << std::endl;
+
+		for (Diagnosis* diagnosis : pacient.Diagnosis_History) {
+			std::cout << " ";
+			std::cout << std::setw(23) << diagnosis->disease->Name_Disease;
+			std::cout << " : ";
+			PrintDateInfo(diagnosis->talon->Admission_Date);
+			std::cout << " : ";
+			PrintTimeInfo(diagnosis->talon->Admission_Time);
+			std::cout << " :" << std::endl;
+		}
+	}
+	else
+		std::cout << " Нет заригестрированных заболеваний " << std::endl;
 }
-*/
+
 
 
 
 //Привязать диагноз к пациенту
 void GiveDiagnosisPacient(Diagnosis* diagnos, Pacient* pacient) {
-	pacient->Diagnosis_History[pacient->Diagnosis_point] = diagnos;
-	pacient->Diagnosis_point++;
+	enum Limit_Value {
+		Maximum_value_for_array = 50
+	};
+	if (pacient->Diagnosis_point < Maximum_value_for_array) {
+		pacient->Diagnosis_History[pacient->Diagnosis_point] = diagnos;
+		pacient->Diagnosis_point++;
+	}
 }
 
 
