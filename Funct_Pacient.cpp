@@ -3,8 +3,6 @@
 #include <iostream>
 #include <iomanip>
 
-
-
 //Создание структуры Pacient
 Pacient GetsPacientData() {
 
@@ -22,6 +20,9 @@ Pacient GetsPacientData() {
 			std::cout << "\n < Номер мед. карты введён некорректно>" << std::endl;
 		}
 	} while (False_Input_Value);
+
+	for (Diagnosis* &diagnosis : pacient->Diagnosis_History)
+		diagnosis = nullptr;
 
 	pacient->Diagnosis_point = 0;
 	
@@ -41,7 +42,9 @@ bool BoolFormatInputCard(int* number) {
 	std::cin >> *number;
 	False_Input_Value = (*number < Minimum_number || *number > Maximum_number)
 		|| std::cin.get() != Clean_input_stream;
-	std::cin.clear();
+	
+	if (False_Input_Value)
+		while (std::cin.get() != '\n');
 
 	return False_Input_Value;
 }
@@ -52,9 +55,7 @@ bool BoolFormatInputCard(int* number) {
 void PrintPacientInfo(Pacient pacient) {
 
 	std::cout << " <Персональные данные>" << std::endl;
-	std::cout << " ФИО пациента            : ";
-	PrintFIOInfo(pacient.Fio);
-	std::cout << std::endl;
+	std::cout << " ФИО пациента            : " << pacient.Fio.Full_Name << std::endl;
 	std::cout << " Серия и номер паспорта  : ";
 	PrintPasportInfo(pacient.pasport);
 	std::cout << std::endl;
@@ -62,28 +63,30 @@ void PrintPacientInfo(Pacient pacient) {
 	PrintDateInfo(pacient.Data_Brith);
 	std::cout << std::endl;
 	std::cout << " Номер медецинской карты : ";
-	std::cout << std::uppercase << std::hex << pacient.Medical_Card ;
+	std::cout << std::uppercase << std::hex << pacient.Medical_Card << std::endl;
 	std::cout << " <Краткая история болезни>" << std::endl;
-
+	std::cout << std::dec;
 	if (pacient.Diagnosis_point > 0) {
 		std::cout << " Общее число зарегистрированных заболеваний: " << pacient.Diagnosis_point << std::endl;
 		std::cout << "    Наименование болезни :       Дата : Время :" << std::endl;
 
 		for (Diagnosis* diagnosis : pacient.Diagnosis_History) {
-			std::cout << " ";
-			std::cout << std::setw(23) << diagnosis->disease->Name_Disease;
-			std::cout << " : ";
-			PrintDateInfo(diagnosis->talon->Admission_Date);
-			std::cout << " : ";
-			PrintTimeInfo(diagnosis->talon->Admission_Time);
-			std::cout << " :" << std::endl;
+			if (diagnosis) {
+				std::cout << " ";
+				std::cout << std::setw(23) << diagnosis->disease->Name_Disease;
+				std::cout << " : ";
+				PrintDateInfo(diagnosis->talon->Admission_Date);
+				std::cout << " : ";
+				PrintTimeInfo(diagnosis->talon->Admission_Time);
+				std::cout << " :" << std::endl;
+			}
+			else
+				break;
 		}
 	}
 	else
 		std::cout << " Нет заригестрированных заболеваний " << std::endl;
 }
-
-
 
 
 //Привязать диагноз к пациенту
@@ -97,17 +100,19 @@ void GiveDiagnosisPacient(Diagnosis* diagnos, Pacient* pacient) {
 	}
 }
 
-
-
 //Переносил ли пациент данное заболевание.
 bool DiseaseOfPacient(std::string Name_Disease, Pacient pacient) {
+	
 	bool Serched_disease_is_present = false;
 	for (Diagnosis* diagnosis : pacient.Diagnosis_History) {
+		if (!diagnosis)
+			break;
 		if (diagnosis->disease->Name_Disease == Name_Disease) {
 			Serched_disease_is_present = true;
 			break;
 		}
 	}
+
 	return Serched_disease_is_present;
 
 }

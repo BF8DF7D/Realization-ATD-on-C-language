@@ -16,17 +16,18 @@ void SetPasportData(Pasport* pasport){
 bool BoolFormatInputPasport(Pasport* pasport) {
 	enum Limit_Value {
 		Quantity_inpyt_value = 2,
-		Minimum_value_for_all = 1,
+		Minimum_value_for_all = 0,
 		Maximum_for_series = 9999,
 		Maximum_for_number = 999999,
 		Clean_input_stream = '\n'
 	};
-
-	bool False_Input_Value = scanf("%d %d", &pasport->Number, &pasport->Series) != Quantity_inpyt_value
-		|| (pasport->Series < Minimum_value_for_all || pasport->Series > Maximum_for_series)
+		bool False_Input_Value = scanf("%d %d", &pasport->Series, &pasport->Number) != Quantity_inpyt_value
+		|| (pasport->Series <= Minimum_value_for_all || pasport->Series > Maximum_for_series)
 		|| (pasport->Number < Minimum_value_for_all || pasport->Number > Maximum_for_number)
 		|| std::cin.get() != Clean_input_stream;
-	std::cin.clear();
+	
+	if (False_Input_Value)
+		while (std::cin.get() != '\n');
 
 	return False_Input_Value;
 }

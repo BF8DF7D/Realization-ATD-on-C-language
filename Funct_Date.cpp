@@ -5,10 +5,10 @@
 void SetDateData(Date* date) {
 	bool False_Input_Value;
 	do {
-		std::cout << " Дата приёма : ";
+		std::cout << " Дата: ";
 		False_Input_Value = BoolFormatInputDate(date);
 		if (False_Input_Value) {
-			std::cout << "\n <Дата приёма введена некорректно>" << std::endl;
+			std::cout << "\n <Дата введена некорректно>" << std::endl;
 		}
 	} while (False_Input_Value);
 }
@@ -19,7 +19,7 @@ bool BoolFormatInputDate(Date* date){
 		Minimum_for_days_and_months = 0,
 		Minimum_value_for_years = 999,
 		Maximum_day = 31,
-		Maximum_mounth = 59,
+		Maximum_mounth = 12,
 		Maximum_years = 9999,
 		Clean_input_stream = '\n'
 	};
@@ -29,7 +29,9 @@ bool BoolFormatInputDate(Date* date){
 		|| (date->mounth <= Minimum_for_days_and_months || date->mounth > Maximum_mounth)
 		|| (date->year <= Minimum_value_for_years || date->year > Maximum_years)
 		|| std::cin.get() != Clean_input_stream;
-	std::cin.clear();
+	
+	if (False_Input_Value)
+		while (std::cin.get() != '\n');
 
 	return False_Input_Value;
 }
@@ -38,4 +40,5 @@ void PrintDateInfo(Date date) {
 	std::cout << std::setfill('0') << std::setw(2) << date.day << ".";
 	std::cout << std::setfill('0') << std::setw(2) << date.mounth << ".";
 	std::cout << std::setw(4) << date.year;
+	std::cout.fill(' ');
 }

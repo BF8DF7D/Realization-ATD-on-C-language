@@ -16,15 +16,14 @@ Disease GetsDiseaseData() {
 	std::getline(std::cin, disease->Name_Disease);
 	std::cin.clear();
 	
-	std::cout << " Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции введите 0" << std::endl;
-
-	for (int Input_value_number = 0, Exid_value = false; !Exid_value; Input_value_number++) {
+	std::cout << " Симптомы.\n Вводите каждый новый симптом с новой строки.\n Для прекращения операции нажмите Enter" << std::endl;
+	
+	for (std::string& symptom : disease->Disease_Symptoms) {
 		std::cout << " : ";
-		std::getline(std::cin, disease->Disease_Symptoms[Input_value_number]);
+		std::getline(std::cin, symptom);
 		std::cin.clear();
-		if (disease->Disease_Symptoms[Input_value_number].empty()) {
-			Exid_value = true;
-		}
+		if (symptom.empty())
+			break;
 	}
 	
 	return *disease;
@@ -35,14 +34,13 @@ void PutsGiseaseInfo(Disease disease) {
 	std::cout << " Наименование: " << disease.Name_Disease << std::endl;
 	std::cout << " Симптомы: " << std::endl;
 	
-	enum Limit_Value {
-		Symptoms_maximum_quantity = 50
-	};
-	
 	int Input_value_number = 0;
-	while (Input_value_number < Symptoms_maximum_quantity
-		&& !disease.Disease_Symptoms[Input_value_number].empty()) {
-		std::cout << " [" << std::setfill('0') << std::setw(2) << Input_value_number + 1 << "] ";
-		std::cout << disease.Disease_Symptoms[Input_value_number++] << std::endl;
+	std::string Empty_value_of_symptom = "";
+	for (std::string symptom : disease.Disease_Symptoms) {
+		if (symptom == Empty_value_of_symptom)
+			break;
+		std::cout << " [" << std::setfill('0') << std::setw(2) << ++Input_value_number << "] ";
+		std::cout << symptom << std::endl;
 	}
+	std::cout.fill(' ');
 }

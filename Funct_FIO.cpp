@@ -36,7 +36,3 @@ bool BoolFormatInputFIO(FIO* fio) {
 
 	return False_Input_Value;
 }
-
-void PrintFIOInfo(FIO fio) {
-	std::cout << std::setw(45) << fio.Full_Name;
-}
