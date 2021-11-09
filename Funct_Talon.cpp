@@ -3,9 +3,6 @@
 #include <iostream>
 #include <iomanip>
 
-
-
-
 //Функция создания структуры "Талон"
 Talon GetsTalonData(Doctor* med) {
 
@@ -40,7 +37,9 @@ bool GetKabinet(int* kabinet ) {
 	bool False_Input_Value = scanf("%d", kabinet) != Quantity_input_value
 		|| (*kabinet <= Minimum_value_for_number || *kabinet > Maximum_number)
 		|| std::cin.get() != Clean_input_stream;
-	std::cin.clear();
+
+	if (False_Input_Value)
+		while (std::cin.get() != '\n');
 
 	return False_Input_Value;
 }
@@ -49,13 +48,12 @@ bool GetKabinet(int* kabinet ) {
 //Вывод структуры "Талон"
 void PutsTalonInfo(Talon talon) {
 	std::cout << " | "; 
-	PrintFIOInfo(talon.Dok->Fio);
+	std::cout << std::setfill(' ') << std::setw(45) << talon.Dok->Fio.Full_Name;
 	std::cout << " | ";
 	PrintDateInfo(talon.Admission_Date);
 	std::cout << " | ";
 	PrintTimeInfo(talon.Admission_Time);
 	std::cout << " | ";
-	std::cout.fill('0');
-	std::cout << std::cout.fill('0') << talon.kabinet << std::setw(3) << " |";
-	
+	std::cout << std::setfill('0') << std::setw(3) << talon.kabinet << " |";
+	std::cout.fill(' ');
 }

@@ -5,10 +5,10 @@
 void SetTimeData(Time* time) {
 	bool False_Input_Value;
 	do {
-		std::cout << " Время приёма: ";
+		std::cout << " Время: ";
 		False_Input_Value = BoolFormatInputTime(time);
 		if (False_Input_Value) {
-			std::cout << "\n <Время приёма введено некорректно>" << std::endl;
+			std::cout << "\n <Время введено некорректно>" << std::endl;
 		}
 	} while (False_Input_Value);
 }
@@ -27,7 +27,9 @@ bool BoolFormatInputTime(Time* time) {
 		|| (time->hour < Minimum_value_for_all || time->hour > Maximum_hour)
 		|| (time->minutes < Minimum_value_for_all || time->minutes > Maximum_minutes)
 		|| std::cin.get() != Clean_input_stream;
-	std::cin.clear();
+	
+	if (False_Input_Value)
+		while (std::cin.get() != '\n');
 
 	return False_Input_Value;
 }
@@ -35,4 +37,5 @@ bool BoolFormatInputTime(Time* time) {
 void PrintTimeInfo(Time time) {
 	std::cout << std::setfill('0') << std::setw(2) << time.hour << ".";
 	std::cout << std::setfill('0') << std::setw(2) << time.minutes;
+	std::cout.fill(' ');
 }

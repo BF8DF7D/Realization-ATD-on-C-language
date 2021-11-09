@@ -19,7 +19,7 @@ bool BoolFormatInputFIO(FIO* fio) {
 	std::getline(std::cin, fio->Full_Name);
 	std::cin.clear();
 	std::stringstream Name_elements_stream(fio->Full_Name);
-	std::string name_elements[] = { fio->Last_Name, fio->First_Name, fio->Patronymic };
+	std::string *name_elements[] = { &fio->Last_Name, &fio->First_Name, &fio->Patronymic };
 
 	enum Limit_Value {
 		Quantity_input_value = 3,
@@ -27,7 +27,7 @@ bool BoolFormatInputFIO(FIO* fio) {
 	int Input_value_numbers = 0;
 	for (std::string buffer; Name_elements_stream >> buffer; Input_value_numbers++) {
 		if (Input_value_numbers < Quantity_input_value) 
-			name_elements[Input_value_numbers] = buffer;
+			*name_elements[Input_value_numbers] = buffer;
 		else if (Input_value_numbers > Quantity_input_value)
 			break;
 	}
@@ -35,8 +35,4 @@ bool BoolFormatInputFIO(FIO* fio) {
 	bool False_Input_Value = Input_value_numbers != Quantity_input_value;
 
 	return False_Input_Value;
-}
-
-void PrintFIOInfo(FIO fio) {
-	std::cout << std::setw(45) << fio.Full_Name;
 }

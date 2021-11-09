@@ -9,4 +9,3 @@ struct FIO {
 
 bool BoolFormatInputFIO(FIO*);
 void SetFIOData(FIO*);
-void PrintFIOInfo(FIO);

@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <string>
 
-
+using std::cout;
 
 //Созание структуры "Доктор"
 Doctor GetsDoctorData() {
@@ -26,7 +26,7 @@ Doctor GetsDoctorData() {
 //Вывод структуры "Доктор"
 void PutsDoctorInfo(Doctor doctor) {
 	std::cout << " | ";
-	PrintFIOInfo(doctor.Fio);
+	std::cout << std::setfill(' ') << std::setw(45) << doctor.Fio.Full_Name;
 	std::cout << " | ";
 	std::cout << std::setw(20) << doctor.dolgnost << " |" << std::endl;
 }

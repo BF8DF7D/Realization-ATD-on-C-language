@@ -20,16 +20,16 @@ void PutsDiagnosisInfo(Diagnosis diagnosis) {
 	Date* date = &diagnosis.talon->Admission_Date;
 	Time* time = &diagnosis.talon->Admission_Time;
 
-	std::cout << " Доктор: " << std::setw(45) << diagnosis.talon->Dok->Fio.Full_Name << std::endl;
+	std::cout << " Доктор: " << diagnosis.talon->Dok->Fio.Full_Name << std::endl;
+	std::cout << " Дата приёма: ";
+	PrintDateInfo(diagnosis.talon->Admission_Date);
+	std::cout << std::endl;
+	std::cout << " Время приёма: ";
+	PrintTimeInfo(diagnosis.talon->Admission_Time);
+	std::cout << std::endl;
+	std::cout << " Номер кабинета: ";
+	std::cout << std::setfill('0') << std::setw(3) << diagnosis.talon->kabinet << std::endl;
+	std::cout.fill(' ');
 
-	std::cout << " Дата приёма: " << std::setw(2) << std::cout.fill('0') << date->day << ".";
-	std::cout << std::setw(2) << std::cout.fill('0') << date->mounth << ".";
-	std::cout << std::setw(4) << date->year << std::endl;
-
-	std::cout << " Время приёма: " << std::setw(2) << std::cout.fill('0') << time->hour << ".";
-	std::cout << std::setw(2) << std::cout.fill('0') << time->minutes << std::endl;
-
-	std::cout << std::setw(3) << std::cout.fill('0') << diagnosis.talon->kabinet << std::endl;
-	
 	PutsGiseaseInfo(*diagnosis.disease);
 }
