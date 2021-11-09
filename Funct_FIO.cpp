@@ -7,7 +7,7 @@ void SetFIOData(FIO* fio) {
 	bool False_Input_Value;
 	do {
 		std::cout << " ФИО: ";
-		False_Input_Value = ItFalseInputFIO(fio);
+		False_Input_Value = BoolFormatInputFIO(fio);
 		if (False_Input_Value) {
 			std::cout << "\n <ФИО введено некорректно>" << std::endl;
 		}

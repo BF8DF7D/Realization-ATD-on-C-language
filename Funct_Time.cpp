@@ -5,14 +5,14 @@ void SetTimeData(Time* time) {
 	bool False_Input_Value;
 	do {
 		std::cout << " Время приёма: ";
-		False_Input_Value = BoolInputTime(time);
+		False_Input_Value = BoolFormatInputTime(time);
 		if (False_Input_Value) {
 			std::cout << "\n <Время приёма введено некорректно>" << std::endl;
 		}
 	} while (False_Input_Value);
 }
 
-bool BoolInputTime(Time* time) {
+bool BoolFormatInputTime(Time* time) {
 	
 	enum Limit_Value {
 		Quantity_input_value = 2,

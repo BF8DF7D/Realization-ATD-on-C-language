@@ -5,7 +5,7 @@ void SetDateData(Date* date) {
 	bool False_Input_Value;
 	do {
 		std::cout << " Дата приёма : ";
-		False_Input_Value = BoolInputData(date);
+		False_Input_Value = BoolFormatInputDate(date);
 		if (False_Input_Value) {
 			std::cout << "\n <Дата приёма введена некорректно>" << std::endl;
 		}

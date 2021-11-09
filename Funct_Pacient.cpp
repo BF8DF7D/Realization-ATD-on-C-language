@@ -18,7 +18,7 @@ Pacient GetsPacientData() {
 
 	bool False_Input_Value;
 	do {
-		False_Input_Value = BoolInputCard(&pacient->Medical_Card);
+		False_Input_Value = BoolFormatInputCard(&pacient->Medical_Card);
 		if (False_Input_Value) {
 			std::cout << "\n < Номер мед. карты введён некорректно>" << std::endl;
 		}
@@ -30,7 +30,7 @@ Pacient GetsPacientData() {
 	return *pacient;
 }
 
-bool BoolInputCard(int* number) {
+bool BoolFormatInputCard(int* number) {
 	enum Limit_Value {
 		Minimum_number = 0x1,
 		Maximum_number = 0xFFFFFFF,

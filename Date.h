@@ -7,5 +7,5 @@ struct Date {
 		year;
 };
 
-bool BoolInputData(Date*);
+bool BoolFormatInputDate(Date*);
 void SetDateData(Date*);

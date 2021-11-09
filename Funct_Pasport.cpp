@@ -4,15 +4,15 @@
 void SetPasportData(Pasport* pasport){
 	bool False_Input_Value;
 	do {
-		std::cout << " Время приёма: ";
-		False_Input_Value = BoolInputPasport(pasport);
+		std::cout << " Паспорт: ";
+		False_Input_Value = BoolFormatInputPasport(pasport);
 		if (False_Input_Value) {
-			std::cout << "\n <Время приёма введено некорректно>" << std::endl;
+			std::cout << "\n <Паспортные данные введены некорректно>" << std::endl;
 		}
 	} while (False_Input_Value);
 }
 
-bool BoolInputPasport(Pasport* pasport) {
+bool BoolFormatInputPasport(Pasport* pasport) {
 	enum Limit_Value {
 		Quantity_inpyt_value = 2,
 		Minimum_value_for_all = 1,

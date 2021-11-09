@@ -6,5 +6,5 @@ struct Time {
 		minutes;
 };
 
-bool BoolInputTime(Time*);
+bool BoolFormatInputTime(Time*);
 void SetTimeData(Time*);

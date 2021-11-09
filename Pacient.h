@@ -11,8 +11,8 @@ struct Pacient {
 	int Diagnosis_point;
 };
 
-Pacient GetsPacientData();										//Создание структуры
-bool BoolInputCard(int* number);
-void PutsPacientInfo(Pacient);									//Печать информации о пациенте
-void GiveDiagnosisPacient(Diagnosis* diagnos, Pacient* un);		//Связь дигноза с пациентом 
-bool DiseaseOfPacient(char disease[], Pacient un);				//Переносил ли пациент данное заболевание.
+Pacient GetsPacientData();									//Создание структуры
+bool BoolFormatInputCard(int*);
+void PutsPacientInfo(Pacient);								//Печать информации о пациенте
+void GiveDiagnosisPacient(Diagnosis*, Pacient*);			//Связь дигноза с пациентом 
+bool DiseaseOfPacient(std::string, Pacient);				//Переносил ли пациент данное заболевание.
